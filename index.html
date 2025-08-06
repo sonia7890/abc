@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alex Styles Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Alex Styles</h1>
+    <nav>
+      <ul>
+        <li><a href="#about" data-tooltip="Learn about Alex">About Me</a></li>
+        <li><a href="#portfolio" data-tooltip="See my work">Portfolio</a></li>
+        <li><a href="#contact" data-tooltip="Get in touch">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm Alex Styles, a passionate graphic designer specializing in creative branding and digital media. I love crafting visual stories that captivate and engage audiences.
+      </p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <a href="#" class="project" data-modal="modal1" tabindex="0">Project 1</a>
+        <a href="#" class="project" data-modal="modal2" tabindex="0">Project 2</a>
+        <a href="#" class="project" data-modal="modal3" tabindex="0">Project 3</a>
+        <a href="#" class="project" data-modal="modal4" tabindex="0">Project 4</a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Alex Styles</p>
+  </footer>
+
+  <!-- Modal Templates -->
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>Project 1 Details</h3>
+      <p>Details about Project 1. This could include tools used, goals, and results.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>Project 2 Details</h3>
+      <p>Details about Project 2. This could include tools used, goals, and results.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>Project 3 Details</h3>
+      <p>Details about Project 3. This could include tools used, goals, and results.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal4">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>Project 4 Details</h3>
+      <p>Details about Project 4. This could include tools used, goals, and results.</p>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript for Modal -->
+  <script>
+    // Open modal
+    document.querySelectorAll('.project').forEach(project => {
+      project.addEventListener('click', e => {
+        e.preventDefault();
+        const modalId = project.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) modal.classList.add('show');
+      });
+    });
+
+    // Close modal
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.modal').classList.remove('show');
+      });
+    });
+
+    // Close modal on outside click
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) modal.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
+
